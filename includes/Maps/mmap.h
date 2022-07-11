@@ -23,14 +23,9 @@ struct MPair{
         key = rhs.key;
         return *this;
     }
-    //--------------------------------------------------------------------------------
-
-    //You'll need to overlod << for your vector:
     friend ostream& operator <<(ostream& outs, const MPair<K, V>& print_me){
         outs<<print_me.key;
-//        for(int i=0; i<print_me.value_list.vector_size(); i++){
         outs<<print_me.value_list;
-        //}
         return outs;
     }
     friend bool operator ==(const MPair<K, V>& lhs, const MPair<K, V>& rhs){
@@ -86,7 +81,6 @@ public:
             return (_it++);
         }
         MPair<K, V> operator *(){
-//            return MP((*_it).key, (*_it).value_list);
             return (*_it);
         }
         bool is_null(){
@@ -103,11 +97,8 @@ public:
         typename map_base::Iterator _it;
     };
 
-    MMap():mmap(true){
+    MMap():mmap(true){}
 
-    }
-
-//  Iterators
     Iterator begin()                    {
         return mmap.begin();
     }
@@ -153,14 +144,7 @@ public:
         return mmap.get(key).value_list;
     }
     vector<V>& operator[](const K& key){
-//        cout<<"called get"<<endl;
-//        P& temp = map.get(P(key));
-//        key_count = map.size();
-//        return temp.value;
-
         return mmap.get(key).value_list;
-
-
     }
 
 //  Modifiers
