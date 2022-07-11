@@ -13,7 +13,6 @@ template<typename T>
 class BTree{
 public:
     BTree(bool dups = false);
-    //big three:
     BTree(const BTree<T>& other);
     ~BTree();
     BTree<T>& operator =(const BTree<T>& RHS);
